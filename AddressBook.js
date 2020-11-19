@@ -177,3 +177,17 @@ function checkDuplicate(fname,lname)
     let count=addressBook.filter(contact => contact.firstname == fname && contact.lastname == lname).reduce(count=>count+1,0);
     return count;
 }
+
+// UC 8 : Ability to search Person in a particular City or State
+console.log("Contact present in the city: "+searchContactInCityOrState("Virat Kohli","Bangalore"));
+function searchContactInCityOrState(fullname,city)
+{
+    var splitStr=fullname.split(" ");
+    var contactExists=addressBook.filter(contact=>contact.city==city && contact.firstname==splitStr[0] && contact.lastname==splitStr[1]);
+    if(contactExists!=null)
+    {
+        return true;
+    }
+    else
+    return false;
+}
