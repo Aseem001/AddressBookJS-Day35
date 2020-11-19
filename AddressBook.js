@@ -113,6 +113,7 @@ try {
     contact = new Contact("Rohit", "Sharma", "Wankhede", "Mumbai", "Maharashtra", "674 678", "91 7435678654", "rs@gmail.com.org");
     addressBook.push(contact);
     addressBook.push(new Contact("Virat", "Kohli", "Chinnaswamy", "Bangalore", "Karnataka", "345 678", "91 8765432345", "vs@gmail.com"));
+    addressBook.push(new Contact("Yuzvendra", "Chahal", "Chinnaswamy", "Bangalore", "Karnataka", "345 678", "91 5678768757", "yc@gmail.com"));
     addressBook.push(new Contact("Gautam", "Gambhir", "Eden Gardens", "Kolkata", "West Bengal", "875 678", "91 2342123456", "gg@gmail.com"));
     addressBook.push(new Contact("Gautam", "Gambhir", "Eden Gardens", "fwrf", "rf Bengal", "875 678", "91 2342123456", "gg@gmail.com"));
     addressBook.push(new Contact("Virendra", "Sehwag", "Firoz Shah Kotla", "New Delhi", "New Delhi", "002 678", "91 5674567890", "vs@gmail.com"));
@@ -150,7 +151,7 @@ function editContact(fullName,value)
 }
 
 // UC 5 : Ability to find a person with name delete it from the array
-deleteContact("Virat Kohli");
+deleteContact("Virendra Sehwag");
 console.log("\nArray details after deletion:")
 addressBook.forEach(contact=>console.log(contact.toString()));
 function deleteContact(fullName)
@@ -193,9 +194,17 @@ function searchContactInCityOrState(fullname,city)
 }
 
 // UC 9 : Ability to view Persons by City or State
-console.log("\nContacts present in city:")
+console.log("\nUC 9: Contacts present in city:")
 viewPersonsInACityOrState("Mumbai");
 function viewPersonsInACityOrState(city)
 {
     addressBook.filter(contact=>contact.city==city).forEach(contact=>console.log(contact.toString()));
+}
+
+// UC 10 : Ability to get number of contact persons i.e. count by City or State
+getCountByCityOrState("Bangalore");
+function getCountByCityOrState(city)
+{
+    let count=addressBook.filter((contact)=>{if(contact.city==city) return contact;}).reduce((count)=>count+1,0);
+    console.log("\nUC 10: Count of people in "+city+" = "+count);
 }
