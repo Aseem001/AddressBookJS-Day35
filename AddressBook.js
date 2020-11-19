@@ -104,7 +104,7 @@ class Contact {
 // UC 3 : New address book array to store contacts
 let addressBook = new Array();
 try {
-    contact = new Contact("Rohit", "Kumar", "Wankhede", "Mumbai", "Maharashtra", "674 678", "91 7435678654", "rs@gmail.com.org");
+    contact = new Contact("Rohit", "Sharma", "Wankhede", "Mumbai", "Maharashtra", "674 678", "91 7435678654", "rs@gmail.com.org");
     addressBook.push(contact);
     addressBook.push(new Contact("Virat", "Kohli", "Chinnaswamy", "Bangalore", "Karnataka", "345 678", "91 8765432345", "vs@gmail.com"));
     addressBook.push(new Contact("Gautam", "Gambhir", "Eden Gardens", "Kolkata", "West Bengal", "875 678", "91 2342123456", "gg@gmail.com"));
@@ -118,7 +118,7 @@ catch (e) {
 // UC 4 : Ability to find existing contact person using their name and edit it
 editContact("Virat Kohli","ffyfuy");
 editContact("Virendra Sehwag","Mauritius");
-console.log("Details after updation:")
+console.log("\nDetails after updation:")
 addressBook.forEach(contact=>console.log(contact.toString()));
 function editContact(fullName,value)
 {
@@ -135,3 +135,20 @@ function editContact(fullName,value)
     }
 }
 
+// UC 5 : Ability to find a person with name delete it from the array
+deleteContact("Virat Kohli");
+console.log("\nArray details after deletion:")
+addressBook.forEach(contact=>console.log(contact.toString()));
+function deleteContact(fullName)
+{
+    var splitStr=fullName.split(" ");
+    for(let i in addressBook)
+    {
+        if(addressBook[i].firstname==splitStr[0] && addressBook[i].lastname==splitStr[1])
+        {
+            //splice(x,y) removes next y elements from the xth position in an array
+            addressBook.splice(i,1);
+            break;
+        }
+    }
+}
