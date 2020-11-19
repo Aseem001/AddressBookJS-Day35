@@ -169,7 +169,7 @@ function deleteContact(fullName)
 
 // UC 6 : Find number of contacts in array using reduce()
 let count = addressBook.reduce((count)=>count+1,0);
-console.log("Total no of contacts in array: "+count);
+console.log("\nUC 6:Total no of contacts in array: "+count);
 
 // UC 7 : Ability to ensure there is no Duplicate Entry of the same Person in the Address Book
 function checkDuplicate(fname,lname)
@@ -179,7 +179,7 @@ function checkDuplicate(fname,lname)
 }
 
 // UC 8 : Ability to search Person in a particular City or State
-console.log("Contact present in the city: "+searchContactInCityOrState("Virat Kohli","Bangalore"));
+console.log("\nUC 8:Contact present in the city: "+searchContactInCityOrState("Virat Kohli","Bangalore"));
 function searchContactInCityOrState(fullname,city)
 {
     var splitStr=fullname.split(" ");
@@ -190,4 +190,12 @@ function searchContactInCityOrState(fullname,city)
     }
     else
     return false;
+}
+
+// UC 9 : Ability to view Persons by City or State
+console.log("\nContacts present in city:")
+viewPersonsInACityOrState("Mumbai");
+function viewPersonsInACityOrState(city)
+{
+    addressBook.filter(contact=>contact.city==city).forEach(contact=>console.log(contact.toString()));
 }
