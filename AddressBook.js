@@ -113,7 +113,7 @@ try {
     contact = new Contact("Rohit", "Sharma", "Wankhede", "Mumbai", "Maharashtra", "674 678", "91 7435678654", "rs@gmail.com.org");
     addressBook.push(contact);
     addressBook.push(new Contact("Virat", "Kohli", "Chinnaswamy", "Bangalore", "Karnataka", "345 678", "91 8765432345", "vs@gmail.com"));
-    addressBook.push(new Contact("Yuzvendra", "Chahal", "Chinnaswamy", "Bangalore", "Karnataka", "345 678", "91 5678768757", "yc@gmail.com"));
+    addressBook.push(new Contact("Yuzvendra", "Chahal", "Chinnaswamy", "Bangalore", "Karnataka", "999 678", "91 5678768757", "yc@gmail.com"));
     addressBook.push(new Contact("Gautam", "Gambhir", "Eden Gardens", "Kolkata", "West Bengal", "875 678", "91 2342123456", "gg@gmail.com"));
     addressBook.push(new Contact("Gautam", "Gambhir", "Eden Gardens", "fwrf", "rf Bengal", "875 678", "91 2342123456", "gg@gmail.com"));
     addressBook.push(new Contact("Virendra", "Sehwag", "Firoz Shah Kotla", "New Delhi", "New Delhi", "002 678", "91 5674567890", "vs@gmail.com"));
@@ -210,6 +210,22 @@ function getCountByCityOrState(city)
 }
 
 // UC 11 : Ability to sort the entries in the address book alphabetically by Person’s name
-var sortedArray = addressBook.sort((a,b) => (a.firstname > b.firstname) ? 1 : ((b.firstname > a.firstname) ? -1 : 0));
-console.log("\nUC 11: Sorted array:")
+var sortedArray = addressBook;
+sortedArray.sort((a,b) => (a.firstname > b.firstname) ? 1 : ((b.firstname > a.firstname) ? -1 : 0));
+console.log("\nUC 11: Sorted array by name:")
 sortedArray.forEach(contact=>console.log(contact.toString()));
+
+// UC 12 : Ability to sort the entries in the address book by City, State, or Zip
+console.log("\nUC 12:");
+var sortByCityArray = addressBook;
+var sortByStateArray = addressBook;
+var sortByZipArray = addressBook;
+sortByCityArray.sort((a,b) => a.city.localeCompare(b.city));
+console.log("Contacts sorted by city:");
+sortByCityArray.forEach(contact=>console.log(contact.toString()));
+sortByStateArray.sort((a,b) => a.state.localeCompare(b.state));
+console.log("\nContacts sorted by state:");
+sortByStateArray.forEach(contact=>console.log(contact.toString()));
+sortByZipArray.sort((a,b) => a.zip.localeCompare(b.zip));
+console.log("\nContacts sorted by zip:");
+sortByZipArray.forEach(contact=>console.log(contact.toString()));
