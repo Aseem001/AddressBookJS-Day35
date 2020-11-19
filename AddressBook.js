@@ -208,3 +208,8 @@ function getCountByCityOrState(city)
     let count=addressBook.filter((contact)=>{if(contact.city==city) return contact;}).reduce((count)=>count+1,0);
     console.log("\nUC 10: Count of people in "+city+" = "+count);
 }
+
+// UC 11 : Ability to sort the entries in the address book alphabetically by Person’s name
+var sortedArray = addressBook.sort((a,b) => (a.firstname > b.firstname) ? 1 : ((b.firstname > a.firstname) ? -1 : 0));
+console.log("\nUC 11: Sorted array:")
+sortedArray.forEach(contact=>console.log(contact.toString()));
